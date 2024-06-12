@@ -1,0 +1,23 @@
+{
+  "title": "オーディオの長さを抽出",
+  "select": {
+    "attachment": "オーディオファイルフィールド",
+    "output": "出力長フィールド",
+    "format": "出力フォーマット"
+  },
+  "convert": "抽出",
+  "format": {
+    "selectFormat": "出力フォーマットを選択",
+    "format0": "{totalSec}",
+    "format1": "{totalSec}s",
+    "format2": "{totalSec}秒",
+    "format3": "{totalMin}分{sec}秒",
+    "format4": "{totalMin}:{sec}",
+    "format5": "{totalHour}時{min}分{sec}秒",
+    "format6": "{totalHour}:{min}:{sec}"
+  },
+  "useZero": "時長数字前に0を2桁に補充",
+  "useMerge": "単一の行添付ファイルに複数のオーディオファイルがある場合、合計長を出力",
+  "error1": "まずフィールドを選択してください",
+  "error2": "「数字」タイプのフィールドを選択する場合、フォーマットは「XX」のみを選択できます"
+}

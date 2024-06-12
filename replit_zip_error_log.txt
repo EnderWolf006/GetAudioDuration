@@ -1,0 +1,17 @@
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/replit/modules/replit","time":"2024-06-11T15:08:38Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/typescript/4.4/node_modules/.bin/acorn","time":"2024-06-11T15:08:38Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/typescript/4.4/node_modules/.bin/browserslist","time":"2024-06-11T15:08:38Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/typescript/4.4/node_modules/.bin/terser","time":"2024-06-11T15:08:38Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/typescript/4.4/node_modules/.bin/update-browserslist-db","time":"2024-06-11T15:08:38Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/typescript/4.4/node_modules/.bin/webpack","time":"2024-06-11T15:08:38Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/acorn","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/esbuild","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/nanoid","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/parser","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/resolve","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/rollup","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/.bin/vite","time":"2024-06-11T15:08:43Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/@vueuse/core/node_modules/.bin/vue-demi-fix","time":"2024-06-11T15:08:46Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/@vueuse/core/node_modules/.bin/vue-demi-switch","time":"2024-06-11T15:08:46Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/@vueuse/shared/node_modules/.bin/vue-demi-fix","time":"2024-06-11T15:08:46Z"}
+{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file node_modules/@vueuse/shared/node_modules/.bin/vue-demi-switch","time":"2024-06-11T15:08:46Z"}

@@ -1,0 +1,23 @@
+{
+  "title": "Extract Audio Duration",
+  "select": {
+    "attachment": "Audio File Field",
+    "output": "Output Duration Field",
+    "format": "Output Format"
+  },
+  "convert": "Extract",
+  "format": {
+    "selectFormat": "Select Output Format",
+    "format0": "{totalSec}",
+    "format1": "{totalSec}s",
+    "format2": "{totalSec} seconds",
+    "format3": "{totalMin}m {sec}s",
+    "format4": "{totalMin}:{sec}",
+    "format5": "{totalHour}h {min}m {sec}s",
+    "format6": "{totalHour}:{min}:{sec}"
+  },
+  "useZero": "Pad duration numbers with 0 to two digits",
+  "useMerge": "Output the total duration",
+  "error1": "Please select fields first",
+  "error2": "When selecting a 'number' type field, only the 'XX' output format can be selected"
+}

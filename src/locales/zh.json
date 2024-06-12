@@ -1,0 +1,23 @@
+{
+  "title": "提取音频时长",
+  "select": {
+    "attachment": "音频附件字段",
+    "output": "输出时长字段",
+    "format": "输出格式"
+  },
+  "convert": "提取",
+  "format": {
+    "selectFormat": "选择输出格式",
+    "format0": "{totalSec}",
+    "format1": "{totalSec}s",
+    "format2": "{totalSec}秒",
+    "format3": "{totalMin}分{sec}秒",
+    "format4": "{totalMin}:{sec}",
+    "format5": "{totalHour}时{min}分{sec}秒",
+    "format6": "{totalHour}:{min}:{sec}"
+  },
+  "useZero": "时长数字前补至两位 0",
+  "useMerge": "如有单行附件中有多个音频文件，输出总时长",
+  "error1": "请先选择字段",
+  "error2": "选择 “数字” 类型的字段时，输出格式仅能选择 “XX”"
+}
