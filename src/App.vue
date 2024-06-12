@@ -1,5 +1,30 @@
 <script setup>
 import Form from './components/Form.vue'
+import { bitable } from '@lark-base-open/js-sdk';
+import { ref, onMounted } from 'vue';
+import { useDark, useToggle } from '@vueuse/core'
+const theme = ref('');
+
+const setThemeColor = () => {
+  console.log(1);
+  const isDark = useDark()
+  const toggleDark = useToggle(isDark)
+  toggleDark(theme.value == 'DARK')
+};
+
+// 挂载时处理
+onMounted(async () => {
+  theme.value = await bitable.bridge.getTheme();
+  setThemeColor();
+});
+
+// 主题修改时处理
+bitable.bridge.onThemeChange((event) => {
+  theme.value = event.data.theme;
+  setThemeColor();
+});
+
+
 </script>
 
 <template>

@@ -110,7 +110,7 @@ async function handleConvert() {
     const attachmentField = await table.getField(attachmentSelectedId.value)
     const outputField = await table.getField(outputSelectedId.value)
     const recordIdList = await table.getRecordIdList();
-
+    const setRecordsData = []
     for (const recordId of recordIdList) {
       if (!await attachmentField.getValue(recordId)) continue
       const fileList = await attachmentField.getAttachmentUrls(recordId)
@@ -122,8 +122,15 @@ async function handleConvert() {
       }
       if (useMerge.value) output = durationConverter(output);
       else if (output[0] == '，') output = output.substring(1, output.length)
-      await outputField.setValue(recordId, output);
+      // await outputField.setValue(recordId, output);
+      setRecordsData.push({
+        recordId: recordId,
+        fields: {
+          [outputField.id]: output
+        }
+      })
     }
+    await table.setRecords(setRecordsData)
     loading.close()
   } catch (e) {
     loading.close()
