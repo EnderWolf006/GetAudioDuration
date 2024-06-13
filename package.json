@@ -1,5 +1,5 @@
 {
-  "name": "Vue Template",
+  "name": "get-audio-duration",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -18,5 +18,6 @@
     "unplugin-auto-import": "^0.16.4",
     "unplugin-vue-components": "^0.25.1",
     "vite": "^3.0.1"
-  }
+  },
+  "output": "dist"
 }
