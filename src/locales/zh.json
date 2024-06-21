@@ -1,7 +1,7 @@
 {
-  "title": "提取音频时长",
+  "title": "提取音视频时长",
   "select": {
-    "attachment": "音频附件字段",
+    "attachment": "音视频附件字段",
     "output": "输出时长字段",
     "format": "输出格式"
   },
@@ -17,7 +17,7 @@
     "format6": "{totalHour}:{min}:{sec}"
   },
   "useZero": "时长数字前补至两位 0",
-  "useMerge": "如有单行附件中有多个音频文件，输出总时长",
+  "useMerge": "如有单行附件中有多个音视频文件，输出总时长",
   "error1": "请先选择字段",
   "error2": "选择 “数字” 类型的字段时，输出格式仅能选择 “XX”"
 }

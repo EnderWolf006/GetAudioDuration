@@ -1,23 +1,23 @@
 {
-  "title": "オーディオの長さを抽出",
+  "title": "音声/動画の長さを抽出",
   "select": {
-    "attachment": "オーディオファイルフィールド",
-    "output": "出力長フィールド",
-    "format": "出力フォーマット"
+    "attachment": "音声/動画の添付フィールド",
+    "output": "出力する長さのフィールド",
+    "format": "出力形式"
   },
   "convert": "抽出",
   "format": {
-    "selectFormat": "出力フォーマットを選択",
+    "selectFormat": "出力形式を選択",
     "format0": "{totalSec}",
-    "format1": "{totalSec}s",
+    "format1": "{totalSec}秒",
     "format2": "{totalSec}秒",
     "format3": "{totalMin}分{sec}秒",
     "format4": "{totalMin}:{sec}",
-    "format5": "{totalHour}時{min}分{sec}秒",
+    "format5": "{totalHour}時間{min}分{sec}秒",
     "format6": "{totalHour}:{min}:{sec}"
   },
-  "useZero": "時長数字前に0を2桁に補充",
-  "useMerge": "単一の行添付ファイルに複数のオーディオファイルがある場合、合計長を出力",
+  "useZero": "長さの数字をゼロで埋めて2桁にする",
+  "useMerge": "単一行の添付ファイルに複数の音声/動画ファイルがある場合、合計長さを出力",
   "error1": "まずフィールドを選択してください",
-  "error2": "「数字」タイプのフィールドを選択する場合、フォーマットは「XX」のみを選択できます"
+  "error2": "「数字」タイプのフィールドを選択すると、出力形式は「XX」のみになります"
 }

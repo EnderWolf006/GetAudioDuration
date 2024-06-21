@@ -20,8 +20,7 @@ const formatList = ref(new Array(7).fill(0).map((v, i) => {
     min: 'XX',
   }]
 }))
-
-async function getAudioFileInfo(url) {
+async function getMediaFileInfo(url) {
   try {
     let response = await fetch(url, { method: 'HEAD' });
     if (!response.ok) {
@@ -31,7 +30,8 @@ async function getAudioFileInfo(url) {
     if (!contentType) {
       throw new Error('Could not get Content-Type');
     }
-    const audioMimeTypes = [
+
+    const mediaMimeTypes = [
       'audio/aac',      // AAC audio
       'audio/midi',     // MIDI audio
       'audio/x-midi',   // MIDI audio
@@ -42,31 +42,40 @@ async function getAudioFileInfo(url) {
       'audio/webm',     // WebM audio
       'audio/3gpp',     // 3GPP audio
       'audio/3gpp2',    // 3GPP2 audio
-      'audio/flac'      // FLAC audio
+      'audio/flac',     // FLAC audio
+      'video/mp4',      // MP4 video
+      'video/webm',     // WebM video
+      'video/ogg',      // Ogg video
+      'video/x-msvideo' // AVI video
     ];
-    if (!audioMimeTypes.includes(contentType)) {
-      throw new Error('The file is not a recognizable audio file.');
+
+    if (!mediaMimeTypes.includes(contentType)) {
+      throw new Error('The file is not a recognizable audio or video file.');
     }
+
     return new Promise((resolve, reject) => {
-      const audio = new Audio(url);
-      audio.addEventListener('loadedmetadata', () => {
+      const media = contentType.startsWith('audio') ? new Audio(url) : document.createElement('video');
+      media.src = url;
+      media.addEventListener('loadedmetadata', () => {
         resolve({
-          isAudio: true,
-          duration: audio.duration
+          isMedia: true,
+          duration: media.duration,
+          mediaType: contentType.startsWith('audio') ? 'audio' : 'video'
         });
       });
-      audio.addEventListener('error', (e) => {
-        reject('Error loading audio file.');
+      media.addEventListener('error', (e) => {
+        reject('Error loading media file.');
       });
     });
   } catch (error) {
     console.error('Error:', error);
     return {
-      isAudio: false,
+      isMedia: false,
       duration: null
     };
   }
 }
+
 
 
 function durationConverter(totalSec) {
@@ -116,8 +125,8 @@ async function handleConvert() {
       const fileList = await attachmentField.getAttachmentUrls(recordId)
       let output = useMerge.value ? 0 : ''
       for (const fileUrl of fileList) {
-        const fileInfo = await getAudioFileInfo(fileUrl)
-        if (!fileInfo.isAudio) continue;
+        const fileInfo = await getMediaFileInfo(fileUrl)
+        if (!fileInfo.isMedia) continue;
         output += useMerge.value ? fileInfo.duration : `，${durationConverter(fileInfo.duration)}`
       }
       if (useMerge.value) output = durationConverter(output);
