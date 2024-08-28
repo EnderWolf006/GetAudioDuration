@@ -116,34 +116,44 @@ async function handleConvert() {
     background: 'rgba(0, 0, 0, 0.7)',
   })
   try {
-    const attachmentField = await table.getField(attachmentSelectedId.value)
-    const outputField = await table.getField(outputSelectedId.value)
-    const recordIdList = await table.getRecordIdList();
-    const setRecordsData = []
-    for (const recordId of recordIdList) {
-      if (!await attachmentField.getValue(recordId)) continue
-      const fileList = await attachmentField.getAttachmentUrls(recordId)
-      let output = useMerge.value ? 0 : ''
-      for (const fileUrl of fileList) {
-        const fileInfo = await getMediaFileInfo(fileUrl)
-        if (!fileInfo.isMedia) continue;
-        output += useMerge.value ? fileInfo.duration : `，${durationConverter(fileInfo.duration)}`
-      }
-      if (useMerge.value) output = durationConverter(output);
-      else if (output[0] == '，') output = output.substring(1, output.length)
-      // await outputField.setValue(recordId, output);
-      setRecordsData.push({
-        recordId: recordId,
-        fields: {
-          [outputField.id]: output
-        }
-      })
+        const attachmentField = await table.getField(attachmentSelectedId.value)
+        const outputField = await table.getField(outputSelectedId.value)
+        let recordIdData;
+        let token;
+        do {
+            recordIdData = await table.getRecordIdListByPage(token ? {
+                pageToken: token
+            } : {});
+            
+            token = recordIdData.pageToken
+            console.log(token);
+            const recordIdList = recordIdData.recordIds
+            const setRecordsData = []
+            for (const recordId of recordIdList) {
+                if (!await attachmentField.getValue(recordId)) continue
+                const fileList = await attachmentField.getAttachmentUrls(recordId)
+                let output = useMerge.value ? 0 : ''
+                for (const fileUrl of fileList) {
+                    const fileInfo = await getMediaFileInfo(fileUrl)
+                    if (!fileInfo.isMedia) continue;
+                    output += useMerge.value ? fileInfo.duration : `，${durationConverter(fileInfo.duration)}`
+                }
+                if (useMerge.value) output = durationConverter(output);
+                else if (output[0] == '，') output = output.substring(1, output.length)
+                // await outputField.setValue(recordId, output);
+                setRecordsData.push({
+                    recordId: recordId,
+                    fields: {
+                        [outputField.id]: output
+                    }
+                })
+            }
+            await table.setRecords(setRecordsData)
+        } while (recordIdData.hasMore);
+        loading.close()
+    } catch (e) {
+        loading.close()
     }
-    await table.setRecords(setRecordsData)
-    loading.close()
-  } catch (e) {
-    loading.close()
-  }
 }
 
 onMounted(async () => {
